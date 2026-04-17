@@ -1,0 +1,100 @@
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+  body {
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+ 
+  .poster {
+    background: #f5f4ef;
+    width: 100%;
+    max-width: 960px;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+ 
+  .big-word {
+    position: absolute;
+    font-size: clamp(40px, 9vw, 108px);
+    font-weight: 900;
+    color: #111;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+ 
+  .paren {
+    font-weight: 300;
+  }
+ 
+  .photo {
+    position: absolute;
+    overflow: hidden;
+  }
+ 
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+ 
+  /* Placeholder color swatches when no real image is provided */
+  .ph-warm-purple  { background: #b5a8c0; }
+  .ph-grey         { background: #888; }
+  .ph-tan          { background: #c9b97a; }
+  .ph-cream        { background: #d4c9a8; }
+  .ph-dark-blue    { background: #2a3040; }
+  .ph-blue-grey    { background: #b0b8c0; }
+  .ph-coral        { background: #c87060; }
+  .ph-mauve        { background: #5a5060; }
+  .ph-silver       { background: #d8d0c8; }
+  .ph-near-black   { background: #333; }
+  .ph-light-blue   { background: #c4d0d8; }
+  .ph-charcoal     { background: #444; }
+  .ph-bokeh        { background: linear-gradient(135deg, #e8a030 0%, #4080d0 50%, #b040a0 100%); }
+ 
+  .label-top {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    font-size: clamp(8px, 1.4vw, 15px);
+    color: #222;
+    line-height: 1.45;
+    font-weight: 400;
+    max-width: 22%;
+  }
+ 
+  .label-bottom-left {
+    position: absolute;
+    bottom: 4%;
+    left: 3%;
+    font-size: clamp(7px, 1.1vw, 12px);
+    color: #222;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: lowercase;
+  }
+ 
+  .label-bottom-right {
+    position: absolute;
+    bottom: 4%;
+    right: 3%;
+    font-size: clamp(7px, 1.15vw, 13px);
+    color: #222;
+    line-height: 1.5;
+    text-align: right;
+    font-weight: 400;
+  }
+ 
+  .label-bottom-right strong {
+    font-weight: 700;
+    display: block;
+  }
+</style>
