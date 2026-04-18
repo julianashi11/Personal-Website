@@ -4,93 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Caveat:wght@400;600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>Juliana Shi</title>
 </head>
 <body>
-    <div class="poster">
  
-  <!-- Top label -->
+<!-- ── FIXED NAV (always on top) ── -->
+<nav>
+  <ul class="nav-links">
+    <li><a href="#">about</a></li>
+    <li><a href="#">experience</a></li>
+    <li><a href="#">projects</a></li>
+    <li><a href="#">awards</a></li>
+    <li><a href="#">contact</a></li>
+  </ul>
+</nav>
+ 
+ 
+<!-- ══════════════════════════════
+     SECTION 1 — POSTER
+══════════════════════════════ -->
+<section class="poster-section">
+ 
+ 
+  <!-- (Juliana Shi) -->
+  <div class="big-word" style="left:3%;top:18%;">
+    <span class="paren">(</span>Juliana Shi<span class="paren">)</span>
+  </div>
+
   <div class="label-top">
-    Juliana Shi<br>
-    St.Louis, Missouri <br>
+    Welcome!<br>
+    Hi from St. Louis, Missouri!
   </div>
  
-  <!-- ── Big scattered typography ── -->
- 
-  <!-- (Juliana -->
-  <div class="big-word" style="left: 3%; top: 12%;">
-    <span class="paren">(</span>Juliana
+  <!-- (FOODIE) -->
+  <div class="big-word" style="right:4%;top:51%;text-align:right;">
+    <span class="paren">(</span>FOODIE<span class="paren">)</span>
   </div>
  
-  <!-- Shi -->
-  <div class="big-word" style="left: 3%; top: 35%;">Shi</div>
- 
-  <!-- ( bottom-left area -->
-  <div class="big-word" style="left: 57%; top: 45%;">
-    <span class="paren">(</span>
+  <!-- (Coder) -->
+  <div class="big-word" style="left:34%;bottom:5%;">
+    <span class="paren">(</span>Coder<span class="paren">)</span>
   </div>
  
-  <!-- Particular — far right -->
-  <div class="big-word" style="right: 4%; top: 46%; text-align: right;">FOODIE</div>
- 
-  <!-- (Order — bottom centre -->
-  <div class="big-word" style="left: 34%; bottom: 2%;">
-    <span class="paren">(</span>Coder
+  <!-- Poster collage -->
+  <div class="photo photo-tilt" style="width:12%;aspect-ratio:4/3;left:50%;top:50%;">
+    <img src="2.png" alt="">
+  </div>
+  <div class="photo" style="width:11%;aspect-ratio:3/4;left:58%;top:10%;">
+    <img src="5.png" alt="">
+  </div>
+  <div class="photo photo-poster-gif" style="width:11%;aspect-ratio:4/5;right:15%;top:10%;">
+    <img src="giphy-sticker.gif" alt="">
+  </div>
+  <div class="photo" style="width:12%;aspect-ratio:4/3;right:3%;top:30%;">
+    <img src="6.png" alt="">
+  </div>
+  <div class="photo" style="width:8.5%;aspect-ratio:2/3;left:46%;top:24%;">
+    <img src="7.png" alt="">
+  </div>
+  <div class="photo" style="width:16%;aspect-ratio:4/3;left:5%;bottom:5%;">
+    <img src="8.png" alt="">
+  </div>
+  <div class="photo" style="width:11%;aspect-ratio:16/9;left:25%;bottom:40%;">
+    <img src="9.png" alt="">
   </div>
  
-  <!-- Floating parentheses -->
-  <div class="big-word paren" style="left: 19%; top: 34%;"><span class="paren">)</span></div>
-  <div class="big-word paren" style="left: 96%; top: 45%;"><span class="paren">)</span></div>
-  <div class="big-word paren" style="right: 34%; bottom: 2%;"><span class="paren">)</span></div>
- 
-  <!-- ── Photos ──
-       Replace the <div class="photo ph-*"> elements with:
-       <div class="photo" style="...same inline style...">
-         <img src="your-image.jpg" alt="">
-       </div>
-  -->
- 
-
-  <!-- Dark interior geometric -->
-  <div class="photo ph-dark-blue"
-       style="width:11%; aspect-ratio:4/3; left:48%; top:26%; transform:rotate(-1deg);"></div>
- 
-  <!-- City / street wide -->
-  <div class="photo ph-blue-grey"
-       style="width:13%; aspect-ratio:16/9; left:34%; top:40%;"></div>
- 
-  <!-- Coloured portrait -->
-  <div class="photo ph-coral"
-       style="width:9%; aspect-ratio:3/4; left:58%; top:3%;"></div>
- 
-  <!-- Moody portrait, right -->
-  <div class="photo ph-mauve"
-       style="width:9%; aspect-ratio:4/5; right:15%; top:8%;"></div>
- 
-  <!-- Hands / abstract b&w -->
-  <div class="photo ph-silver"
-       style="width:10%; aspect-ratio:4/3; right:3%; top:28%;"></div>
- 
-  <!-- Tiny dark portrait -->
-  <div class="photo ph-near-black"
-       style="width:5%; aspect-ratio:2/3; left:46%; top:5%;"></div>
- 
-  <!-- Lab / machine equipment -->
-  <div class="photo ph-light-blue"
-       style="width:13%; aspect-ratio:4/3; left:5%; bottom:18%;"></div>
- 
-  <!-- Dark street landscape -->
-  <div class="photo ph-charcoal"
-       style="width:9%; aspect-ratio:16/9; left:18%; bottom:20%;"></div>
-
-  <!-- ── Bottom labels ── -->
-  <div class="label-bottom-left">Welcome!</div>
   <div class="label-bottom-right">
-    <strong>Hello!</strong>
     This is my personal portfolio<br>
     Technologist, designer, product-oriented
   </div>
  
-</div>
+</section>
+ 
+ 
+<!-- ══════════════════════════════
+     SECTION 2 — HERO / PASSPORT
+══════════════════════════════ -->
+<section class="hero-section">
+ 
+  <div class="hero-left">
+    <h1 class="hero-heading">
+      Hi, my name is<br>
+      <strong style="font-weight:400;">Juliana Shi.</strong>
+    </h1>
+ 
+    <p class="pronunciation">pronounced <em>joo·lee·ah·nah shee</em></p>
+ 
+    <p class="roles-label">CURRENT ROLES</p>
+ 
+    <div class="stamps-row">
+      <!-- Add your images inside each .role-img-box -->
+      <!-- To use: replace the placeholder content with <img src="your-image.jpg" alt="Role name"> -->
+      <div class="role-img-box">
+        <!-- <img src="role1.jpg" alt="Fine Artist"> -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8 12h8M12 8v8"/></svg>
+        add photo
+      </div>
+      <div class="role-img-box">
+        <!-- <img src="role2.jpg" alt="Content Creator"> -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8 12h8M12 8v8"/></svg>
+        add photo
+      </div>
+      <div class="role-img-box">
+        <!-- <img src="role3.jpg" alt="Consultant"> -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8 12h8M12 8v8"/></svg>
+        add photo
+      </div>
+    </div>
+  </div>
+ 
+  <div class="hero-right">
+    <div class="passport">
+      <img src="passport.png" alt="Juliana Shi">
+    </div>
+  </div>
+ 
+</section>
+ 
 </body>
 </html>
