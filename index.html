@@ -12,11 +12,11 @@
 <!-- ── FIXED NAV (always on top) ── -->
 <nav>
   <ul class="nav-links">
-    <li><a href="#">about</a></li>
-    <li><a href="#">experience</a></li>
-    <li><a href="#">projects</a></li>
-    <li><a href="#">awards</a></li>
-    <li><a href="#">contact</a></li>
+    <li><a href="#about">about</a></li>
+    <li><a href="#experience">experience</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#awards">awards</a></li>
+    <li><a href="#contact">contact</a></li>
   </ul>
 </nav>
  
@@ -54,8 +54,12 @@
   <div class="photo" style="width:11%;aspect-ratio:3/4;left:58%;top:10%;">
     <img src="5.png" alt="">
   </div>
-  <div class="photo photo-poster-gif" style="width:11%;aspect-ratio:4/5;right:15%;top:10%;">
+  <button type="button" class="photo photo-poster-gif cd-player-btn" style="width:11%;aspect-ratio:4/5;right:15%;top:10%;" onclick="toggleCdAudio()" aria-label="Play playlist audio" aria-pressed="false" title="Play">
     <img src="giphy-sticker.gif" alt="">
+  </button>
+  <div class="cd-click-me" aria-hidden="true">
+    <span class="cd-click-me-text">click me</span>
+    <span class="cd-click-me-arrow">↙</span>
   </div>
   <div class="photo" style="width:12%;aspect-ratio:4/3;right:3%;top:30%;">
     <img src="6.png" alt="">
@@ -81,7 +85,7 @@
 <!-- ══════════════════════════════
      SECTION 2 — HERO / PASSPORT
 ══════════════════════════════ -->
-<section class="hero-section">
+<section class="hero-section" id="about">
  
   <div class="hero-left">
     <h1 class="hero-heading">
@@ -90,28 +94,17 @@
     </h1>
  
     <p class="pronunciation">pronounced <em>joo·lee·ah·nah shee</em></p>
- 
-    <p class="roles-label">CURRENT ROLES</p>
- 
-    <div class="stamps-row">
-      <!-- Add your images inside each .role-img-box -->
-      <!-- To use: replace the placeholder content with <img src="your-image.jpg" alt="Role name"> -->
-      <div class="role-img-box">
-        <!-- <img src="role1.jpg" alt="Fine Artist"> -->
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8 12h8M12 8v8"/></svg>
-        add photo
-      </div>
-      <div class="role-img-box">
-        <!-- <img src="role2.jpg" alt="Content Creator"> -->
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8 12h8M12 8v8"/></svg>
-        add photo
-      </div>
-      <div class="role-img-box">
-        <!-- <img src="role3.jpg" alt="Consultant"> -->
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M8 12h8M12 8v8"/></svg>
-        add photo
-      </div>
-    </div>
+    <p class = "roles-label">I am a Computer science & Math major with a minor in HCI and Finance at Washington University in St.Louis. From developing AI models to detect diabetes to building a travel itineary app, my passion is rooted in making people's lives easier and fun! In my free time, you can find me cooking new recipes, going to the beach, and playing with my two dogs!</p>
+      <p class = "roles-label"><u>Here is what I am currently up to:</u>
+          <ul class = "current-roles">
+            <li>Technology Consultant & Growth Team @ Bear Studios</li>      
+
+            <li>Full-stack Developer @ Google Developers Group</li>
+
+            <li>Grid Resilient Development & AI Sustainability Planning Intern @ Cabanne District CDC</li> 
+            <li>*Incoming Technology and Intelligence Intern @ Huntington Ingalls Industries - Summer 2026</li> 
+          </ul>
+      </p>
   </div>
  
   <div class="hero-right">
@@ -121,6 +114,228 @@
   </div>
  
 </section>
+
+<!-- ══════════════════════════════
+     SECTION 3 — EXPERIENCE (grid)
+══════════════════════════════ -->
+<section class="experience-section" id="experience">
+  <header class="experience-section-header">
+    <h2 class="experience-section-title">Experience</h2>
+  </header>
+
+  <article class="experience-row">
+    <div class="experience-copy">
+      <div class="experience-meta">
+        <span class="experience-date">Jan 2026 – present</span>
+        <span class="experience-location">St. Louis, MO</span>
+      </div>
+      <h3 class="experience-job-title">Grid Resilient Development &amp; AI Sustainability Planning Intern</h3>
+      <ul class="experience-bullets">
+        <li>Engineer AI models to quantify environmental risk factors, translating complex climate data into insights for ESG reporting.</li>
+        <li>Automate data pipelines using Python and Pandas to ingest large-scale datasets, ensuring high-fidelity data integrity for sustainability compliance audits.</li>
+        <li>Leverage Regression and Time-Series analysis to forecast resource consumption trends, providing feedback for long-term risk assessment and strategic capital allocation.</li>
+      </ul>
+    </div>
+    <div class="experience-visual">
+      <div class="experience-image-placeholder">
+        <img src="CDC.png">
+      </div>
+    </div>
+  </article>
+
+  <article class="experience-row">
+    <div class="experience-copy">
+      <div class="experience-meta">
+        <span class="experience-date">Jul 2025 – Jul 2025</span>
+        <span class="experience-location">New York, NY</span>
+      </div>
+      <h3 class="experience-job-title">Cisco Business, Technology, Sales, and Finance Extern</h3>
+      <ul class="experience-bullets">
+        <li>Developed strategic plan to integrate AI with Cisco products into HCA healthcare, bridging 180+ hospitals and 2,000+ clinics.</li>
+        <li>Designed AI-driven workflows to optimize hospital operations, improve patient data accessibility, and enhance real-time decision-making for healthcare providers.</li>
+        <li>Won 1st out of 30 teams in the Cisco Developers Showcase, recognized for innovation, scalability, and healthcare impact.</li>
+      </ul>
+    </div>
+    <div class="experience-visual">
+      <div class="experience-image-placeholder">
+        <img src="Cisco.JPG" alt="Cisco internship">
+      </div>
+    </div>
+  </article>
+
+  <article class="experience-row">
+    <div class="experience-copy">
+      <div class="experience-meta">
+        <span class="experience-date">Jun 2024 – Jul 2024</span>
+        <span class="experience-location">Honolulu, HI</span>
+      </div>
+      <h3 class="experience-job-title">Junior Engineers Summer STEM Experience Intern, UH Manoa</h3>
+      <ul class="experience-bullets">
+        <li>Programmed an algorithm with &lt;1% error in Python using frequency domain analysis and time domain analysis to noninvasively detect heart rate through a photoplethysmography sensor.</li>
+        <li>Evaluated heart rate responses across music genres, indicating that classical music had the strongest calming effect.</li>
+        <li>Presented findings to 100+ professionals, earning recognition from healthcare experts for technical rigor and applicability.</li>
+      </ul>
+    </div>
+    <div class="experience-visual">
+      <div class="experience-image-placeholder" role="img" aria-label="Image placeholder">
+        <img src="JESSE.png" alt="UH Manoa JESSE program">
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 3 — PROJECTS
+══════════════════════════════ -->
+<section class="projects-section" id="projects">
+  <div class="projects-header">
+    <h2 class="projects-title">Projects</h2>
+  </div>
+ 
+  <div class="projects-grid">
+ 
+    <!-- Folder 1: pink -->
+    <button class="project-folder" onclick="openModal('washu')">
+      <img class="folder-img" src="f1.png" alt="WashU Campus Delivery Robot folder">
+      <span class="folder-name">WashU Campus Delivery Robot</span>
+      <span class="folder-tech">TypeScript</span>
+    </button>
+ 
+    <!-- Folder 2: purple -->
+    <button class="project-folder" onclick="openModal('diabetes')">
+      <img class="folder-img" src="f2.png" alt="Diabetes Prediction ML folder">
+      <span class="folder-name">Diabetes Prediction ML Model</span>
+      <span class="folder-tech">R · Python</span>
+    </button>
+ 
+    <!-- Folder 3: blue -->
+    <button class="project-folder" onclick="openModal('voiya')">
+      <img class="folder-img" src="f3.png" alt="Voiya App folder">
+      <span class="folder-name">Voiya Social Media → Itinerary App</span>
+      <span class="folder-tech">TypeScript · CSS · HTML · JavaScript</span>
+    </button>
+ 
+  </div>
+</section>
+ 
+<!-- ══════════════════════════════
+     SECTION 4 — AWARDS
+══════════════════════════════ -->
+<section class="awards-section" id="awards">
+  <div class="awards-header">
+    <h2 class="awards-title">Awards</h2>
+  </div>
+  <ul class="awards-list">
+    <li>McKelvey Undergraduate Research Scholarship ($5000); Steven Lowy Scholar</li>
+    <li>'Iolani Class of 2025 Valedictorian &amp; Cum Laude Society</li>
+    <li>US Metric Association Award (HAIS Research Science Fair) (2025)</li>
+    <li>CyberPatriot Platinum Division - 1st Place in Hawaii (2024), 2nd Place in Hawaii (2023 &amp; 2025)</li>
+  </ul>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 5 — CONTACT
+══════════════════════════════ -->
+<section class="contact-section" id="contact">
+  <div class="contact-header">
+    <h2 class="contact-title">Contact</h2>
+  </div>
+  <p class="contact-line">
+    Email:
+    <a href="mailto:julianas@wustl.edu" class="contact-link">julianas@wustl.edu</a>
+  </p>
+</section>
+
+ 
+<!-- ── MODAL ── -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="closeOnBackdrop(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-tech-tag" id="modal-tech"></span>
+    <h2 class="modal-title" id="modal-title"></h2>
+    <ul class="modal-bullets" id="modal-bullets"></ul>
+  </div>
+</div>
+
+<!-- CD audio (mp3) -->
+<audio id="cd-audio" preload="none">
+  <source src="Website.m4a" type="audio/mp4">
+</audio>
+ 
+ 
+<script>
+  const projects = {
+    washu: {
+      title: 'WashU Campus Delivery Robot',
+      tech: 'TypeScript',
+      bullets: [
+        'Launching full-stack development of a TypeScript-based platform for a campus delivery robot for ~18,000 users.',
+        'Building a front-end dashboard to process user delivery requests, projecting to increase restaurant orders by 30%.',
+        'Designed user workflows to request deliveries, monitor robot status, and manage over 1,000+ orders in real time.'
+      ]
+    },
+    diabetes: {
+      title: 'Diabetes Prediction ML Model',
+      tech: 'R · Python',
+      bullets: [
+        'Analyzed AI tools — Logistic Regression, Decision Tree, Random Forest, Polynomial Regression, Support Vector Machine, and Neural Network — with R to detect type 1 pre-diabetes in children with body composition scans.',
+        'Identified the SVM as the optimal model with a 96% accuracy through calculating the AUC, sensitivity, and specificity.'
+      ]
+    },
+    voiya: {
+      title: 'Voiya Social Media → Itinerary App',
+      tech: 'TypeScript · CSS · HTML · JavaScript',
+      bullets: [
+        'Engineered an AI-powered mobile platform to convert unstructured social media videos into optimized, end-to-end travel itineraries using React Native, Vercel, and OpenAI.',
+        'Built a scalable AI pipeline to extract, enrich, and algorithmically optimize data with APIs (Google Maps, Places, Calendar).'
+      ]
+    }
+  };
+ 
+  function openModal(key) {
+    const p = projects[key];
+    document.getElementById('modal-tech').textContent = p.tech;
+    document.getElementById('modal-title').textContent = p.title;
+    const ul = document.getElementById('modal-bullets');
+    ul.innerHTML = p.bullets.map(b => `<li>${b}</li>`).join('');
+    document.getElementById('modal-backdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+ 
+  function closeModal() {
+    document.getElementById('modal-backdrop').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+ 
+  function closeOnBackdrop(e) {
+    if (e.target === document.getElementById('modal-backdrop')) closeModal();
+  }
+
+  function toggleCdAudio() {
+    const audio = document.getElementById('cd-audio');
+    const btn = document.querySelector('.cd-player-btn');
+    if (!audio || !btn) return;
+
+    if (audio.paused) {
+      audio.play().then(() => {
+        btn.setAttribute('aria-pressed', 'true');
+        btn.title = 'Pause';
+      }).catch(() => {
+        // Browser blocked playback or missing file; do nothing noisy.
+      });
+    } else {
+      audio.pause();
+      btn.setAttribute('aria-pressed', 'false');
+      btn.title = 'Play';
+    }
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    if (document.getElementById('modal-backdrop').classList.contains('open')) closeModal();
+  });
+</script>
+ 
  
 </body>
 </html>
