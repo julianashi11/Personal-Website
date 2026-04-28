@@ -1,0 +1,7 @@
+[build]
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/github-contributions"
+  to = "/.netlify/functions/github-contributions"
+  status = 200

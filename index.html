@@ -138,7 +138,7 @@
     </div>
     <div class="experience-visual">
       <div class="experience-image-placeholder">
-        <img src="CDC.png">
+        <img src="Canbanne.jpg">
       </div>
     </div>
   </article>
@@ -190,31 +190,40 @@
 <section class="projects-section" id="projects">
   <div class="projects-header">
     <h2 class="projects-title">Projects</h2>
+    <p class="projects-note">Museum Exhibit: click a painting for more details.</p>
+    <p class="projects-note">I am a huge fan of Werner Bronkhorst and his work!</p>
   </div>
  
-  <div class="projects-grid">
- 
-    <!-- Folder 1: pink -->
-    <button class="project-folder" onclick="openModal('washu')">
-      <img class="folder-img" src="f1.png" alt="WashU Campus Delivery Robot folder">
-      <span class="folder-name">WashU Campus Delivery Robot</span>
-      <span class="folder-tech">TypeScript</span>
-    </button>
- 
-    <!-- Folder 2: purple -->
-    <button class="project-folder" onclick="openModal('diabetes')">
-      <img class="folder-img" src="f2.png" alt="Diabetes Prediction ML folder">
-      <span class="folder-name">Diabetes Prediction ML Model</span>
-      <span class="folder-tech">R · Python</span>
-    </button>
- 
-    <!-- Folder 3: blue -->
-    <button class="project-folder" onclick="openModal('voiya')">
-      <img class="folder-img" src="f3.png" alt="Voiya App folder">
-      <span class="folder-name">Voiya Social Media → Itinerary App</span>
-      <span class="folder-tech">TypeScript · CSS · HTML · JavaScript</span>
-    </button>
- 
+  <div class="exhibit-grid">
+    <article class="exhibit-item exhibit-item-left">
+      <button class="exhibit-frame" onclick="openModal('washu')" aria-label="Open details for WashU Campus Delivery Robot project">
+        <img class="exhibit-art" src="p1.png" alt="Painting for WashU Campus Delivery Robot project">
+      </button>
+      <div class="exhibit-plaque">
+        <h3 class="exhibit-title">WashU Campus Delivery Robot</h3>
+        <p class="exhibit-description">Campus delivery platform project focused on robot ordering and real-time delivery workflows.</p>
+      </div>
+    </article>
+
+    <article class="exhibit-item exhibit-item-center">
+      <button class="exhibit-frame" onclick="openModal('diabetes')" aria-label="Open details for Diabetes Prediction ML Model project">
+        <img class="exhibit-art" src="p2.png" alt="Painting for Diabetes Prediction ML Model project">
+      </button>
+      <div class="exhibit-plaque">
+        <h3 class="exhibit-title">Diabetes Prediction ML Model</h3>
+        <p class="exhibit-description">Machine learning research using multiple models to predict type 1 pre-diabetes risk.</p>
+      </div>
+    </article>
+
+    <article class="exhibit-item exhibit-item-right">
+      <button class="exhibit-frame" onclick="openModal('voiya')" aria-label="Open details for Voiya Social Media Itinerary App project">
+        <img class="exhibit-art" src="p3.png" alt="Painting for Voiya Social Media Itinerary App project">
+      </button>
+      <div class="exhibit-plaque">
+        <h3 class="exhibit-title">Voiya Social Media Itinerary App</h3>
+        <p class="exhibit-description">AI app that transforms social media travel clips into complete itinerary plans.</p>
+      </div>
+    </article>
   </div>
 </section>
  
@@ -244,6 +253,33 @@
     Email:
     <a href="mailto:julianas@wustl.edu" class="contact-link">julianas@wustl.edu</a>
   </p>
+  <div class="github-commits" aria-live="polite">
+    <h3 class="github-commits-title" id="github-commits-title">GitHub Contributions</h3>
+    <p class="github-commits-subtitle">GitHub contribution calendar</p>
+    <div class="commit-cubes-wrapper">
+      <div class="commit-month-labels" id="commit-month-labels" aria-hidden="true"></div>
+      <div class="commit-cubes-chart">
+        <div class="commit-day-labels" aria-hidden="true">
+          <span>Mon</span>
+          <span>Wed</span>
+          <span>Fri</span>
+        </div>
+        <div class="commit-cubes-grid" id="commit-cubes-grid" role="img" aria-label="GitHub contribution cubes">
+        </div>
+      </div>
+    </div>
+    <p class="commit-cubes-status" id="commit-cubes-status">Loading contribution cubes...</p>
+    <div class="commit-cubes-legend" aria-hidden="true">
+      <span>Less</span>
+      <span class="cube-level cube-level-0"></span>
+      <span class="cube-level cube-level-1"></span>
+      <span class="cube-level cube-level-2"></span>
+      <span class="cube-level cube-level-3"></span>
+      <span class="cube-level cube-level-4"></span>
+      <span>More</span>
+    </div>
+    <p class="github-commits-note">Secure setup: token stays server-side in environment variables.</p>
+  </div>
 </section>
 
  
@@ -334,6 +370,69 @@
     if (e.key !== 'Escape') return;
     if (document.getElementById('modal-backdrop').classList.contains('open')) closeModal();
   });
+
+  function formatMonthShort(date) {
+    return date.toLocaleString('en-US', { month: 'short' });
+  }
+
+  function contributionLevelToClass(level, count) {
+    if (count <= 0) return 'cube-level-0';
+    if (level === 'FIRST_QUARTILE') return 'cube-level-1';
+    if (level === 'SECOND_QUARTILE') return 'cube-level-2';
+    if (level === 'THIRD_QUARTILE') return 'cube-level-3';
+    return 'cube-level-4';
+  }
+
+  async function loadGithubContributions() {
+    const title = document.getElementById('github-commits-title');
+    const monthLabels = document.getElementById('commit-month-labels');
+    const grid = document.getElementById('commit-cubes-grid');
+    const status = document.getElementById('commit-cubes-status');
+    if (!title || !monthLabels || !grid || !status) return;
+
+    if (window.location.protocol === 'file:') {
+      status.textContent = 'Open this page from http://localhost:8888 (not directly as a file) so the API route can load.';
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/github-contributions?username=julianashi11');
+      const data = await response.json();
+      if (!response.ok) throw new Error(data && data.error ? data.error : 'Failed to fetch contributions');
+      const calendar = data.contributionCalendar;
+      if (!calendar || !Array.isArray(calendar.weeks)) throw new Error('Invalid response payload');
+
+      title.textContent = `${calendar.totalContributions} contributions in the last year`;
+      const weekColumns = calendar.weeks.slice(-30);
+
+      monthLabels.innerHTML = weekColumns.map((week, index) => {
+        const first = week.contributionDays[0] ? new Date(week.contributionDays[0].date) : null;
+        const prev = index > 0 && weekColumns[index - 1].contributionDays[0]
+          ? new Date(weekColumns[index - 1].contributionDays[0].date)
+          : null;
+        if (!first) return '<span class="commit-month-label"></span>';
+        const showMonth = !prev || first.getMonth() !== prev.getMonth();
+        return `<span class="commit-month-label">${showMonth ? formatMonthShort(first) : ''}</span>`;
+      }).join('');
+
+      grid.innerHTML = weekColumns.map(week => {
+        const dayCells = week.contributionDays.map(day => {
+          const count = day.contributionCount || 0;
+          const levelClass = contributionLevelToClass(day.contributionLevel, count);
+          return `<span class="commit-cube ${levelClass}" title="${count} contribution${count === 1 ? '' : 's'} on ${day.date}"></span>`;
+        }).join('');
+        return `<div class="commit-week-column">${dayCells}</div>`;
+      }).join('');
+      status.textContent = '';
+    } catch (error) {
+      title.textContent = 'GitHub Contributions';
+      monthLabels.innerHTML = '';
+      grid.innerHTML = '';
+      status.textContent = 'Could not load contributions. Open this site from http://localhost:8888 while netlify dev is running.';
+    }
+  }
+
+  loadGithubContributions();
 </script>
  
  
