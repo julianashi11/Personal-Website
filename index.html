@@ -6,16 +6,20 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Caveat:wght@400;600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>Juliana Shi</title>
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
  
 <!-- ── FIXED NAV (always on top) ── -->
 <nav>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <a href="#top" class="nav-brand">js.</a>
   <ul class="nav-links">
     <li><a href="#about">about</a></li>
     <li><a href="#experience">experience</a></li>
     <li><a href="#projects">projects</a></li>
     <li><a href="#awards">awards</a></li>
+    <li><a href="#recruiting" class="nav-recruiting">recruiting</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
 </nav>
@@ -24,7 +28,7 @@
 <!-- ══════════════════════════════
      SECTION 1 — POSTER
 ══════════════════════════════ -->
-<section class="poster-section">
+<section class="poster-section" id="top">
  
  
   <!-- (Juliana Shi) -->
@@ -32,14 +36,23 @@
     <span class="paren">(</span>Juliana Shi<span class="paren">)</span>
   </div>
 
+  <a href="#recruiting" class="recruit-pill">
+    <span class="recruit-dot" aria-hidden="true"></span>
+    Recruiting · SWE &amp; PM<span class="recruit-pill-long"> internships</span> · Summer 2027
+    <span class="recruit-pill-arrow" aria-hidden="true">→</span>
+  </a>
+
   <div class="label-top">
     Welcome!<br>
     Hi from St. Louis, Missouri!
+    <span class="poster-hint">psst, drag the photos around
+      <button type="button" class="poster-reset" id="poster-reset" hidden>↺ tidy up</button>
+    </span>
   </div>
  
   <!-- (FOODIE) -->
   <div class="big-word" style="right:4%;top:51%;text-align:right;">
-    <span class="paren">(</span>FOODIE<span class="paren">)</span>
+    <span class="paren">(</span><button type="button" class="word-cycle" id="word-cycle" aria-live="polite" title="click me">FOODIE</button><span class="paren">)</span>
   </div>
  
   <!-- (Coder) -->
@@ -48,29 +61,29 @@
   </div>
  
   <!-- Poster collage -->
-  <div class="photo photo-tilt" style="width:12%;aspect-ratio:4/3;left:50%;top:50%;">
+  <div class="photo photo-tilt" data-depth="0.6" style="width:12%;aspect-ratio:4/3;left:50%;top:50%;">
     <img src="2.png" alt="">
   </div>
-  <div class="photo" style="width:11%;aspect-ratio:3/4;left:58%;top:10%;">
+  <div class="photo" data-depth="1.2" style="width:11%;aspect-ratio:3/4;left:58%;top:10%;">
     <img src="5.png" alt="">
   </div>
-  <button type="button" class="photo photo-poster-gif cd-player-btn" style="width:11%;aspect-ratio:4/5;right:15%;top:10%;" onclick="toggleCdAudio()" aria-label="Play playlist audio" aria-pressed="false" title="Play">
+  <button type="button" class="photo photo-poster-gif cd-player-btn" data-depth="0.9" style="width:11%;aspect-ratio:4/5;right:15%;top:10%;" aria-label="Play playlist audio" aria-pressed="false" title="Play">
     <img src="giphy-sticker.gif" alt="">
   </button>
   <div class="cd-click-me" aria-hidden="true">
     <span class="cd-click-me-text">click me</span>
     <span class="cd-click-me-arrow">↙</span>
   </div>
-  <div class="photo" style="width:12%;aspect-ratio:4/3;right:3%;top:30%;">
+  <div class="photo" data-depth="0.7" style="width:12%;aspect-ratio:4/3;right:3%;top:30%;">
     <img src="6.png" alt="">
   </div>
-  <div class="photo" style="width:8.5%;aspect-ratio:2/3;left:46%;top:24%;">
+  <div class="photo" data-depth="1.4" style="width:8.5%;aspect-ratio:2/3;left:46%;top:24%;">
     <img src="7.png" alt="">
   </div>
-  <div class="photo" style="width:16%;aspect-ratio:4/3;left:5%;bottom:5%;">
+  <div class="photo" data-depth="0.5" style="width:16%;aspect-ratio:4/3;left:5%;bottom:5%;">
     <img src="8.png" alt="">
   </div>
-  <div class="photo" style="width:11%;aspect-ratio:16/9;left:25%;bottom:40%;">
+  <div class="photo" data-depth="1.0" style="width:11%;aspect-ratio:16/9;left:25%;bottom:40%;">
     <img src="9.png" alt="">
   </div>
  
@@ -95,7 +108,7 @@
  
     <p class="pronunciation">pronounced <em>joo·lee·ah·nah shee</em></p>
     <p class = "roles-label">I am born and raised on O'ahu, Hawai'i! I am a Computer science & Math major with a minor in HCI at Washington University in St.Louis. From developing AI models to detect diabetes to building a travel itineary app, my passion is rooted in making people's lives easier and fun! In my free time, you can find me cooking new recipes, going to the beach, and playing with my two dogs!</p>
-      <p class = "roles-label"><u>Here is what I am currently up to:</u>
+      <div class = "roles-label roles-block"><u>Here is what I am currently up to:</u>
           <ul class = "current-roles">
             <li>Campus Lead @ OpenAI</li> 
 
@@ -109,11 +122,11 @@
 
             <li>Building! </li> 
           </ul>
-      </p>
+      </div>
   </div>
  
   <div class="hero-right">
-    <div class="passport">
+    <div class="passport" id="passport">
       <img src="passport.png" alt="Juliana Shi">
     </div>
   </div>
@@ -128,7 +141,7 @@
     <h2 class="experience-section-title">Experience</h2>
   </header>
 
-  <article class="experience-row">
+  <article class="experience-row reveal">
     <div class="experience-copy">
       <div class="experience-meta">
         <span class="experience-date">Jun 2026 – Aug 2026</span>
@@ -148,7 +161,7 @@
     </div>
   </article>
 
-  <article class="experience-row">
+  <article class="experience-row reveal">
     <div class="experience-copy">
       <div class="experience-meta">
         <span class="experience-date">Jan 2026 – present</span>
@@ -167,7 +180,7 @@
     </div>
   </article>
 
-  <article class="experience-row">
+  <article class="experience-row reveal">
     <div class="experience-copy">
       <div class="experience-meta">
         <span class="experience-date">Jul 2025 – Jul 2025</span>
@@ -187,7 +200,7 @@
     </div>
   </article>
 
-  <article class="experience-row">
+  <article class="experience-row reveal">
     <div class="experience-copy">
       <div class="experience-meta">
         <span class="experience-date">Jun 2024 – Jul 2024</span>
@@ -219,7 +232,7 @@
   </div>
  
   <div class="exhibit-grid">
-    <article class="exhibit-item exhibit-item-left">
+    <article class="exhibit-item reveal exhibit-item-left">
       <button class="exhibit-frame" onclick="openModal('washu')" aria-label="Open details for WashU Campus Delivery Robot project">
         <img class="exhibit-art" src="p1.png" alt="Painting for WashU Campus Delivery Robot project">
       </button>
@@ -229,7 +242,7 @@
       </div>
     </article>
 
-    <article class="exhibit-item exhibit-item-center">
+    <article class="exhibit-item reveal exhibit-item-center">
       <button class="exhibit-frame" onclick="openModal('diabetes')" aria-label="Open details for Diabetes Prediction ML Model project">
         <img class="exhibit-art" src="p2.png" alt="Painting for Diabetes Prediction ML Model project">
       </button>
@@ -239,7 +252,7 @@
       </div>
     </article>
 
-    <article class="exhibit-item exhibit-item-right">
+    <article class="exhibit-item reveal exhibit-item-right">
       <button class="exhibit-frame" onclick="openModal('voiya')" aria-label="Open details for Voiya Social Media Itinerary App project">
         <img class="exhibit-art" src="p3.png" alt="Painting for Voiya Social Media Itinerary App project">
       </button>
@@ -259,15 +272,50 @@
     <h2 class="awards-title">Awards</h2>
   </div>
   <ul class="awards-list">
-    <li>McKelvey Undergraduate Research Scholarship ($5000); Steven Lowy Scholar</li>
-    <li>'Iolani Class of 2025 Valedictorian &amp; Cum Laude Society</li>
-    <li>US Metric Association Award (HAIS Research Science Fair) (2025)</li>
-    <li>CyberPatriot Platinum Division - 1st Place in Hawaii (2024), 2nd Place in Hawaii (2023 &amp; 2025)</li>
+    <li class="reveal">McKelvey Undergraduate Research Scholarship ($5000); Steven Lowy Scholar</li>
+    <li class="reveal">'Iolani Class of 2025 Valedictorian &amp; Cum Laude Society</li>
+    <li class="reveal">US Metric Association Award (HAIS Research Science Fair) (2025)</li>
+    <li class="reveal">CyberPatriot Platinum Division - 1st Place in Hawaii (2024), 2nd Place in Hawaii (2023 &amp; 2025)</li>
   </ul>
 </section>
 
 <!-- ══════════════════════════════
-     SECTION 5 — CONTACT
+     SECTION 5 — RECRUITING
+══════════════════════════════ -->
+<section class="recruiting-section" id="recruiting">
+  <div class="recruiting-header">
+    <p class="recruiting-eyebrow"><span class="recruit-dot" aria-hidden="true"></span> Open to opportunities</p>
+    <h2 class="recruiting-title">Recruiting for <em>Summer 2027</em> internships.</h2>
+    <p class="recruiting-lede">I&rsquo;m looking for software engineering and product management internships where I can build things people actually use, ideally where AI, product, and design meet.</p>
+  </div>
+
+  <div class="recruiting-grid">
+    <article class="recruit-card reveal">
+      <span class="recruit-card-num">01</span>
+      <h3 class="recruit-card-title">Software Engineering</h3>
+      <p class="recruit-card-copy">Full-stack and AI/ML engineering, from TypeScript dashboards and React Native apps to ML models and data pipelines.</p>
+      <ul class="recruit-tags">
+        <li>TypeScript</li><li>React Native</li><li>Python</li><li>R</li><li>AI/ML</li>
+      </ul>
+    </article>
+    <article class="recruit-card reveal">
+      <span class="recruit-card-num">02</span>
+      <h3 class="recruit-card-title">Product Management</h3>
+      <p class="recruit-card-copy">Turning fuzzy problems into clear user workflows and shipped features, backed by an HCI minor and consulting work at Bear Studios.</p>
+      <ul class="recruit-tags">
+        <li>User research</li><li>HCI</li><li>Strategy</li><li>Growth</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="recruiting-actions">
+    <a class="btn btn-primary" href="mailto:julianas@wustl.edu?subject=Summer%202027%20Internship">Let&rsquo;s talk <span aria-hidden="true">→</span></a>
+    <a class="btn btn-ghost" href="https://github.com/julianashi11" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SECTION 6 — CONTACT
 ══════════════════════════════ -->
 <section class="contact-section" id="contact">
   <div class="contact-header">
@@ -276,11 +324,14 @@
   <p class="contact-line">
     Email:
     <a href="mailto:julianas@wustl.edu" class="contact-link">julianas@wustl.edu</a>
+    <button type="button" class="copy-btn" id="copy-email" data-email="julianas@wustl.edu">copy</button>
   </p>
   <div class="github-commits" aria-live="polite">
     <h3 class="github-commits-title" id="github-commits-title">GitHub Contributions</h3>
-    <p class="github-commits-subtitle">GitHub contribution calendar</p>
-    <div class="commit-cubes-wrapper">
+    <p class="github-commits-subtitle">
+      <a href="https://github.com/julianashi11" target="_blank" rel="noopener" class="contact-link">@julianashi11</a> on GitHub · hover a square for details
+    </p>
+    <div class="commit-cubes-wrapper" id="commit-cubes-wrapper">
       <div class="commit-month-labels" id="commit-month-labels" aria-hidden="true"></div>
       <div class="commit-cubes-chart">
         <div class="commit-day-labels" aria-hidden="true">
@@ -288,11 +339,11 @@
           <span>Wed</span>
           <span>Fri</span>
         </div>
-        <div class="commit-cubes-grid" id="commit-cubes-grid" role="img" aria-label="GitHub contribution cubes">
+        <div class="commit-cubes-grid" id="commit-cubes-grid" role="img" aria-label="GitHub contribution calendar">
         </div>
       </div>
     </div>
-    <p class="commit-cubes-status" id="commit-cubes-status">Loading contribution cubes...</p>
+    <p class="commit-cubes-status" id="commit-cubes-status">Loading contributions…</p>
     <div class="commit-cubes-legend" aria-hidden="true">
       <span>Less</span>
       <span class="cube-level cube-level-0"></span>
@@ -302,11 +353,12 @@
       <span class="cube-level cube-level-4"></span>
       <span>More</span>
     </div>
-    <p class="github-commits-note">Secure setup: token stays server-side in environment variables.</p>
   </div>
+  <div class="cube-tooltip" id="cube-tooltip" role="tooltip" hidden></div>
 </section>
 
- 
+<button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
 <!-- ── MODAL ── -->
 <div class="modal-backdrop" id="modal-backdrop" onclick="closeOnBackdrop(event)">
   <div class="modal" id="modal">
@@ -378,6 +430,7 @@
 
     if (audio.paused) {
       audio.play().then(() => {
+        btn.classList.add('is-playing');
         btn.setAttribute('aria-pressed', 'true');
         btn.title = 'Pause';
       }).catch(() => {
@@ -385,6 +438,7 @@
       });
     } else {
       audio.pause();
+      btn.classList.remove('is-playing');
       btn.setAttribute('aria-pressed', 'false');
       btn.title = 'Play';
     }
@@ -395,8 +449,222 @@
     if (document.getElementById('modal-backdrop').classList.contains('open')) closeModal();
   });
 
-  function formatMonthShort(date) {
-    return date.toLocaleString('en-US', { month: 'short' });
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* ── NAV: scroll progress + active section ── */
+  (function initNav() {
+    const bar = document.getElementById('scroll-progress');
+    const backToTop = document.getElementById('back-to-top');
+    const links = [...document.querySelectorAll('.nav-links a')];
+    const sections = links
+      .map(a => document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+
+    function onScroll() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? window.scrollY / max : 0;
+      if (bar) bar.style.transform = `scaleX(${pct})`;
+      if (backToTop) backToTop.classList.toggle('visible', window.scrollY > window.innerHeight * 0.8);
+
+      let current = null;
+      sections.forEach(sec => {
+        if (sec.getBoundingClientRect().top <= window.innerHeight * 0.35) current = sec.id;
+      });
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${current}`));
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    if (backToTop) backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  })();
+
+  /* ── SCROLL REVEAL ── */
+  (function initReveal() {
+    const items = document.querySelectorAll('.reveal');
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      items.forEach(el => el.classList.add('in-view'));
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.classList.add('in-view');
+        io.unobserve(el);
+        // Drop the stagger delay afterwards so hover effects respond instantly.
+        setTimeout(() => { el.style.transitionDelay = ''; }, 1000);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    items.forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 4) * 70}ms`;
+      io.observe(el);
+    });
+  })();
+
+  /* ── POSTER: cycling word ── */
+  (function initWordCycle() {
+    const el = document.getElementById('word-cycle');
+    if (!el) return;
+    const words = ['FOODIE', 'BUILDER', 'DESIGNER', 'ISLANDER', 'DOG LOVER'];
+    let i = 0;
+    let timer = null;
+
+    function next() {
+      i = (i + 1) % words.length;
+      el.classList.add('swap-out');
+      setTimeout(() => {
+        el.textContent = words[i];
+        el.classList.remove('swap-out');
+      }, 220);
+    }
+    function start() { if (!prefersReducedMotion) timer = setInterval(next, 2600); }
+    function stop() { clearInterval(timer); }
+
+    el.addEventListener('click', () => { stop(); next(); start(); });
+    el.addEventListener('mouseenter', stop);
+    el.addEventListener('mouseleave', () => { stop(); start(); });
+    start();
+  })();
+
+  /* ── POSTER: parallax + draggable collage ── */
+  (function initCollage() {
+    const poster = document.querySelector('.poster-section');
+    const photos = [...document.querySelectorAll('.poster-section .photo')];
+    const resetBtn = document.getElementById('poster-reset');
+    if (!poster || !photos.length) return;
+
+    let topZ = 10;
+    let lastDragMoved = false;
+
+    // Staggered entrance.
+    photos.forEach((p, i) => { p.style.animationDelay = `${0.25 + i * 0.07}s`; });
+
+    // Parallax: photos drift gently opposite the cursor, each at its own depth.
+    if (canHover && !prefersReducedMotion) {
+      poster.addEventListener('pointermove', e => {
+        const r = poster.getBoundingClientRect();
+        const nx = (e.clientX - r.left) / r.width - 0.5;
+        const ny = (e.clientY - r.top) / r.height - 0.5;
+        photos.forEach(p => {
+          if (p.classList.contains('dragging')) return;
+          const d = parseFloat(p.dataset.depth || '1');
+          p.style.setProperty('--px', `${(-nx * 18 * d).toFixed(1)}px`);
+          p.style.setProperty('--py', `${(-ny * 14 * d).toFixed(1)}px`);
+        });
+      });
+      poster.addEventListener('pointerleave', () => {
+        photos.forEach(p => { p.style.setProperty('--px', '0px'); p.style.setProperty('--py', '0px'); });
+      });
+    }
+
+    // Drag to rearrange (mouse / pen only so touch users can still scroll).
+    photos.forEach(photo => {
+      photo.addEventListener('dragstart', e => e.preventDefault());
+      photo.addEventListener('pointerdown', e => {
+        lastDragMoved = false;
+        if (e.pointerType === 'touch' || e.button !== 0) return;
+        const startX = e.clientX;
+        const startY = e.clientY;
+        const baseX = parseFloat(photo.style.getPropertyValue('--dx')) || 0;
+        const baseY = parseFloat(photo.style.getPropertyValue('--dy')) || 0;
+        let moved = false;
+        photo.setPointerCapture(e.pointerId);
+
+        function move(ev) {
+          const dx = ev.clientX - startX;
+          const dy = ev.clientY - startY;
+          if (!moved && Math.hypot(dx, dy) < 4) return;
+          if (!moved) {
+            moved = true;
+            photo.classList.add('dragging');
+            photo.style.zIndex = ++topZ;
+          }
+          photo.style.setProperty('--dx', `${baseX + dx}px`);
+          photo.style.setProperty('--dy', `${baseY + dy}px`);
+        }
+        function up() {
+          photo.removeEventListener('pointermove', move);
+          photo.removeEventListener('pointerup', up);
+          photo.removeEventListener('pointercancel', up);
+          photo.classList.remove('dragging');
+          lastDragMoved = moved;
+          if (moved && resetBtn) resetBtn.hidden = false;
+        }
+        photo.addEventListener('pointermove', move);
+        photo.addEventListener('pointerup', up);
+        photo.addEventListener('pointercancel', up);
+      });
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        photos.forEach(p => {
+          p.style.setProperty('--dx', '0px');
+          p.style.setProperty('--dy', '0px');
+          p.style.zIndex = '';
+        });
+        resetBtn.hidden = true;
+      });
+    }
+
+    // CD player: a click plays music, but not if the user just dragged it.
+    const cd = document.querySelector('.cd-player-btn');
+    if (cd) {
+      cd.addEventListener('click', () => {
+        if (lastDragMoved) { lastDragMoved = false; return; }
+        toggleCdAudio();
+      });
+    }
+  })();
+
+  /* ── HERO: passport tilts toward the cursor ── */
+  (function initPassportTilt() {
+    const passport = document.getElementById('passport');
+    if (!passport || !canHover || prefersReducedMotion) return;
+    passport.addEventListener('pointermove', e => {
+      const r = passport.getBoundingClientRect();
+      const nx = (e.clientX - r.left) / r.width - 0.5;
+      const ny = (e.clientY - r.top) / r.height - 0.5;
+      passport.style.setProperty('--rx', `${(-ny * 10).toFixed(2)}deg`);
+      passport.style.setProperty('--ry', `${(nx * 12).toFixed(2)}deg`);
+      passport.style.setProperty('--gx', `${((nx + 0.5) * 100).toFixed(1)}%`);
+      passport.style.setProperty('--gy', `${((ny + 0.5) * 100).toFixed(1)}%`);
+    });
+    passport.addEventListener('pointerleave', () => {
+      passport.style.setProperty('--rx', '0deg');
+      passport.style.setProperty('--ry', '0deg');
+    });
+  })();
+
+  /* ── CONTACT: copy email ── */
+  (function initCopyEmail() {
+    const btn = document.getElementById('copy-email');
+    if (!btn) return;
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.email);
+        btn.textContent = 'copied ✓';
+      } catch (err) {
+        btn.textContent = 'press ⌘C';
+        const range = document.createRange();
+        range.selectNodeContents(btn.previousElementSibling);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+      setTimeout(() => { btn.textContent = 'copy'; }, 1800);
+    });
+  })();
+
+  /* ── GITHUB CONTRIBUTIONS ── */
+  const GITHUB_USERNAME = 'julianashi11';
+  const LEVEL_NAMES = ['NONE', 'FIRST_QUARTILE', 'SECOND_QUARTILE', 'THIRD_QUARTILE', 'FOURTH_QUARTILE'];
+
+  // Parse "YYYY-MM-DD" as a local date (avoids timezone shifting the month/day).
+  function parseDay(str) {
+    const [y, m, d] = str.split('-').map(Number);
+    return new Date(y, m - 1, d);
   }
 
   function contributionLevelToClass(level, count) {
@@ -407,55 +675,121 @@
     return 'cube-level-4';
   }
 
-  async function loadGithubContributions() {
+  // Netlify function (uses GITHUB_TOKEN when configured, public fallback otherwise).
+  async function fetchFromNetlify() {
+    const response = await fetch(`/api/github-contributions?username=${GITHUB_USERNAME}`);
+    const type = response.headers.get('content-type') || '';
+    if (!response.ok || !type.includes('application/json')) throw new Error('API route unavailable');
+    const data = await response.json();
+    if (!data.contributionCalendar || !Array.isArray(data.contributionCalendar.weeks)) throw new Error('Bad payload');
+    return data.contributionCalendar;
+  }
+
+  // Direct public API — works on GitHub Pages, plain static servers, and file://.
+  async function fetchFromPublicApi() {
+    const response = await fetch(`https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`);
+    if (!response.ok) throw new Error('Public API failed');
+    const data = await response.json();
+    const days = Array.isArray(data.contributions) ? data.contributions : [];
+    const weeks = [];
+    let current = [];
+    days.forEach((d, i) => {
+      if (parseDay(d.date).getDay() === 0 && current.length) {
+        weeks.push({ contributionDays: current });
+        current = [];
+      }
+      current.push({ date: d.date, contributionCount: d.count || 0, contributionLevel: LEVEL_NAMES[d.level] || 'NONE' });
+      if (i === days.length - 1) weeks.push({ contributionDays: current });
+    });
+    return { totalContributions: data.total ? data.total.lastYear : 0, weeks };
+  }
+
+  function renderCalendar(calendar) {
     const title = document.getElementById('github-commits-title');
     const monthLabels = document.getElementById('commit-month-labels');
     const grid = document.getElementById('commit-cubes-grid');
-    const status = document.getElementById('commit-cubes-status');
-    if (!title || !monthLabels || !grid || !status) return;
+    const wrapper = document.getElementById('commit-cubes-wrapper');
+    const weeks = calendar.weeks;
 
-    if (window.location.protocol === 'file:') {
-      status.textContent = 'Open this page from http://localhost:8888 (not directly as a file) so the API route can load.';
-      return;
-    }
+    const total = calendar.totalContributions;
+    title.textContent = `${total.toLocaleString()} contribution${total === 1 ? '' : 's'} in the last year`;
 
-    try {
-      const response = await fetch('/api/github-contributions?username=julianashi11');
-      const data = await response.json();
-      if (!response.ok) throw new Error(data && data.error ? data.error : 'Failed to fetch contributions');
-      const calendar = data.contributionCalendar;
-      if (!calendar || !Array.isArray(calendar.weeks)) throw new Error('Invalid response payload');
+    monthLabels.innerHTML = weeks.map((week, index) => {
+      const firstDay = week.contributionDays[0];
+      const prevDay = index > 0 ? weeks[index - 1].contributionDays[0] : null;
+      if (!firstDay) return '<span class="commit-month-label"></span>';
+      const first = parseDay(firstDay.date);
+      const showMonth = index > 0 && (!prevDay || first.getMonth() !== parseDay(prevDay.date).getMonth());
+      return `<span class="commit-month-label">${showMonth ? first.toLocaleString('en-US', { month: 'short' }) : ''}</span>`;
+    }).join('');
 
-      title.textContent = `${calendar.totalContributions} contributions in the last year`;
-      const weekColumns = calendar.weeks.slice(-30);
-
-      monthLabels.innerHTML = weekColumns.map((week, index) => {
-        const first = week.contributionDays[0] ? new Date(week.contributionDays[0].date) : null;
-        const prev = index > 0 && weekColumns[index - 1].contributionDays[0]
-          ? new Date(weekColumns[index - 1].contributionDays[0].date)
-          : null;
-        if (!first) return '<span class="commit-month-label"></span>';
-        const showMonth = !prev || first.getMonth() !== prev.getMonth();
-        return `<span class="commit-month-label">${showMonth ? formatMonthShort(first) : ''}</span>`;
+    let cubeIndex = 0;
+    grid.innerHTML = weeks.map((week, wIndex) => {
+      // First week may start mid-week: pad so rows line up with Sun–Sat.
+      const pad = wIndex === 0 && week.contributionDays[0]
+        ? parseDay(week.contributionDays[0].date).getDay()
+        : 0;
+      const spacers = '<span class="commit-cube commit-cube-empty"></span>'.repeat(pad);
+      const cells = week.contributionDays.map(day => {
+        const count = day.contributionCount || 0;
+        const levelClass = contributionLevelToClass(day.contributionLevel, count);
+        const delay = Math.min(cubeIndex++ * 1.6, 700);
+        return `<span class="commit-cube ${levelClass}" data-count="${count}" data-date="${day.date}" style="--delay:${delay}ms"></span>`;
       }).join('');
+      return `<div class="commit-week-column">${spacers}${cells}</div>`;
+    }).join('');
 
-      grid.innerHTML = weekColumns.map(week => {
-        const dayCells = week.contributionDays.map(day => {
-          const count = day.contributionCount || 0;
-          const levelClass = contributionLevelToClass(day.contributionLevel, count);
-          return `<span class="commit-cube ${levelClass}" title="${count} contribution${count === 1 ? '' : 's'} on ${day.date}"></span>`;
-        }).join('');
-        return `<div class="commit-week-column">${dayCells}</div>`;
-      }).join('');
-      status.textContent = '';
-    } catch (error) {
-      title.textContent = 'GitHub Contributions';
-      monthLabels.innerHTML = '';
-      grid.innerHTML = '';
-      status.textContent = 'Could not load contributions. Open this site from http://localhost:8888 while netlify dev is running.';
-    }
+    grid.setAttribute('aria-label', `${total} GitHub contributions in the last year`);
+    // Show the most recent weeks first on narrow screens.
+    if (wrapper) wrapper.scrollLeft = wrapper.scrollWidth;
+    requestAnimationFrame(() => grid.classList.add('cubes-in'));
   }
 
+  function initCubeTooltip() {
+    const grid = document.getElementById('commit-cubes-grid');
+    const tip = document.getElementById('cube-tooltip');
+    if (!grid || !tip) return;
+    grid.addEventListener('pointerover', e => {
+      const cube = e.target.closest('.commit-cube[data-date]');
+      if (!cube) return;
+      const count = Number(cube.dataset.count);
+      const date = parseDay(cube.dataset.date).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+      tip.innerHTML = `<strong>${count === 0 ? 'No' : count} contribution${count === 1 ? '' : 's'}</strong> on ${date}`;
+      tip.hidden = false;
+      const r = cube.getBoundingClientRect();
+      const tr = tip.getBoundingClientRect();
+      const left = Math.max(8, Math.min(window.innerWidth - tr.width - 8, r.left + r.width / 2 - tr.width / 2));
+      tip.style.left = `${left}px`;
+      tip.style.top = `${r.top - tr.height - 8}px`;
+    });
+    grid.addEventListener('pointerleave', () => { tip.hidden = true; });
+    window.addEventListener('scroll', () => { tip.hidden = true; }, { passive: true });
+  }
+
+  async function loadGithubContributions() {
+    const status = document.getElementById('commit-cubes-status');
+    const title = document.getElementById('github-commits-title');
+    if (!status) return;
+
+    const sources = window.location.protocol === 'file:'
+      ? [fetchFromPublicApi]
+      : [fetchFromNetlify, fetchFromPublicApi];
+
+    for (const source of sources) {
+      try {
+        const calendar = await source();
+        renderCalendar(calendar);
+        status.textContent = '';
+        return;
+      } catch (err) {
+        // try the next source
+      }
+    }
+    title.textContent = 'GitHub Contributions';
+    status.innerHTML = 'Couldn&rsquo;t load contributions right now. <a class="contact-link" href="https://github.com/julianashi11" target="_blank" rel="noopener">See them on GitHub →</a>';
+  }
+
+  initCubeTooltip();
   loadGithubContributions();
 </script>
  
